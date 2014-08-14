@@ -1,11 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html manifest="/app.manifest">
     <head>
-        <title>Contact Pic</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Meteor Rider Example</title>
     </head>
     <body>
-		<span>Displaying image</span>
-		<p></p>
-		<img src="content://com.android.contacts/contacts/957/photo" />
+        <div class="app">
+
+            <h1>Meteor Rider, Loading</h1>
+            Loading....
+
+            <div id="phonegapapp-test" style="display: none;">
+              <!-- put whatever native device testing you want here, easy to toggle -->
+			  
+				<h1>Apache Cordova</h1>
+				<div id="deviceready" class="blink">
+					<p class="event listening">Connecting to Device</p>
+					<p class="event received">Device is Ready</p>
+				</div>
+				<span>Displaying image</span>
+				<p></p>
+				<img src="content://com.android.contacts/contacts/957/photo" />
+				<p></p>
+				<img src="content://com.android.contacts/contacts/740/photo" />
+				<p></p>
+				<img src="content://com.android.contacts/contacts/739/photo" />
+
+            </div>
+
+        </div>
+        <!-- include the core cordova JS file for your app, like normal -->
+        <script type="text/javascript" src="cordova.js"></script>
+        <!-- any other custom "on device" code here -->
+        <!-- ... -->
+        <!-- basics for our phonegap app (Native, on Device JS) -->
+        <script type="text/javascript" src="js/index.js"></script>
+        <!-- ... -->
+        <!-- this JS file, the code needed for MeteorRider -->
+        <script type="text/javascript" src="js/meteor-rider.js"></script>
+        <script type="text/javascript">
+
+
+          document.addEventListener('deviceready', function() {
+              // do whatever stuff on deviceready
+              // ....
+
+              // put all your phonegap specific initializer code here
+              // ....
+
+              // if testing phonegap api/plugin, you may want to disable MeteorRider
+              //   in which case you can display your own HTML w/o Meteor
+              // ....
+
+              // ok - go ahead and initialize MeteorRider (go get some!)
+			  setTimeout(
+				function(){
+					MeteorRider.init("http://protoproto.no-ip.org:3000/");
+				},
+				5000);
+
+          }, false);
+
+          /*** for more control ***
+            var config = {
+              meteorUrl: 'http://leaderboard.meteor.com/',
+              currentPath: '',
+              localStorage: true,
+              // step 1) loading text
+              doLoading: true,
+              // step 2) AJAX request
+              doRequest: true,
+              // step 3) AJAX response (or cache) replacing DOM
+              doReplace: true
+            };
+            MeteorRider.init(config);
+          */
+
+        </script>
     </body>
 </html>
+
