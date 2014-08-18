@@ -42,7 +42,8 @@ body {
     margin:0px;
     padding:0px;
     text-transform:uppercase;
-    width:100%;
+    /*width:100%; NVIDAL */ 
+	width:480px; NVIDAL
 }
 
 /* Portrait layout (default) */
